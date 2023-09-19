@@ -1,15 +1,16 @@
-const refs = {
-    userInput: document.querySelector('input'),
-};
+
+const userInput = document.querySelector('input');
+const dataLength = userInput.getAttribute('data-length');
 
 
-refs.userInput.addEventListener('blur', () => {
-    if (refs.userInput.value.length > 6) {
-        refs.userInput.classList.add('valid');
-        refs.userInput.classList.remove('invalid');
+userInput.addEventListener('blur', () => {
+    const length = parseInt(dataLength);
+    if (userInput.value.length === length) {
+        userInput.classList.add('valid');
+        userInput.classList.remove('invalid');
     } else {
-        refs.userInput.classList.remove('valid');
-        refs.userInput.classList.add('invalid');
+        userInput.classList.remove('valid');
+        userInput.classList.add('invalid');
     }
 });
 
